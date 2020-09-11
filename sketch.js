@@ -27,13 +27,17 @@ function draw() {
   background(46,139,87);
 
   if(keyDown(UP_ARROW)){
-    writestock(foodS);
+    writeStock(foods);
+    
     dog.addImage(img2)
+    dog.scale = 0.2;
+    
   }else
   {
     if(keyDown(DOWN_ARROW)){
-    updatestock(foodS);
-    dog.addImage(img2);
+    updatestock(foods);
+    happyDog.addImage(img2);
+    happyDog.scale = 0.2;
  }
 }
   drawSprites();
