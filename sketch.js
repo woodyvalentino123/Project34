@@ -6,8 +6,8 @@ function preload()
 {
  
   //load images here
-  img1 = loadImage("images/dogimg.png");
-  img2 = loadImage("images/dogimg1.png");
+  img1 = loadImage("images/dogImg.png");
+  img2 = loadImage("images/dogImg1.png");
 }
 
 function setup() {
@@ -16,8 +16,8 @@ function setup() {
   foodstock = database.ref('Food');
   foodstock.on("value",readstock,showerror);
   dog = createSprite(200,200,20,20);
-  dog.addImage(img2);
-  happyDog = createSprtie(100,100,20,20);
+  
+  happyDog = createSprite(100,100,20,20);
   
   
 }
@@ -27,12 +27,13 @@ function draw() {
   background(46,139,87);
 
   if(keyDown(UP_ARROW)){
-    writeFood(-1);
+    writestock(foodS);
+    dog.addImage(img2)
   }else
   {
     if(keyDown(DOWN_ARROW)){
-    writeStock(foods);
-    happyDog.addImage(img1);
+    updatestock(foodS);
+    dog.addImage(img2);
  }
 }
   drawSprites();
@@ -43,7 +44,7 @@ function draw() {
   //add styles here
 
 }
-function readStock(data){
+function readstock(data){
   foods=data.val();
 }
 
@@ -52,11 +53,20 @@ function writeStock(x){
     x=0;
   }else{
     x=x-1;
+  }
     database.ref('/').update({
       Food:x
     })
   }
+function updatestock(y){
+  y =y+1;
+  database.ref("/").update({
+    Food:y
+  })
 }
 
+function showerror(){
+  console.log("error");
+}
 
 
