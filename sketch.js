@@ -36,7 +36,7 @@ function draw() {
   {
     if(keyDown(DOWN_ARROW)){
     updatestock(foods);
-    happyDog.addImage(img2);
+    happyDog.addImage(img1);
     happyDog.scale = 0.2;
  }
 }
@@ -44,7 +44,7 @@ function draw() {
   textSize(20);
   fill('red')
   stroke(4)
-  text("Note: Press UP _ ARROW Key to Feed Dragon Milk",200,100);
+  text("Note: Press UP _ ARROW Key to Feed Dragon Milk",50,50);
   //add styles here
 
 }
