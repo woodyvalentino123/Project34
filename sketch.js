@@ -44,12 +44,13 @@ function draw() {
   textSize(20);
   fill('red')
   stroke(4)
-  text("Note: Press UP _ ARROW Key to Feed Dragon Milk",50,50);
+  text("Note: Press UP _ ARROW Key to Feed Dragon Milk",10,400);
   //add styles here
 
 }
 function readstock(data){
   foods=data.val();
+  console.log(foods);
 }
 
 function writeStock(x){
